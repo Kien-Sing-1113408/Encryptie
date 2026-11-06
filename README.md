@@ -19,3 +19,11 @@ Hierbij nog een tabel voor de vergelijkingen:
 
 ### Kerckhoff's Principe
 Volgens Kercckhoff's Principe moet een systeem veilig zijn, ook zou alles behalve de sleutel publiek bekend zijn. De veilig licht dus bij de sleutel en niet in de geheimhouding van de algoritme. Dit is ook waarom we openbare, uitvoerig geanalyseerde standaarden gebruiken.
+
+## 2. Hoe de applicatie werkt
+
+## 3. Gekozen encryptiemethode, algroritme en rechtvaardiging
+
+## 4. Sleutelbeheer
+
+## 5. Reflectie op Kerckhoff's Principe
