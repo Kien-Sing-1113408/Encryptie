@@ -10,7 +10,12 @@ Voor asymmetrische encryptie gebruikt je een key pair: een public key om te vers
 
 Hierbij nog een tabel voor de vergelijkingen:
 
-| e | e | e |
+|  | Symmetrisch | Asymmetrisch |
+| --- | --- | --- |
+| Sleutels | 1 gedeelde geheime sleutel | publiek/privaat paar |
+| Snelheid | zeer snel | traag |
+| Sleuteluitwisseling | lastig (vooraf veilig delen) | eenvoudig (publieke sleutel mag openbaar) |
+| Typisch gebruik | bulkdata, opslag | sleuteluitwisseling, handtekeningen |
 
 ### Kerckhoff's Principe
 Volgens Kercckhoff's Principe moet een systeem veilig zijn, ook zou alles behalve de sleutel publiek bekend zijn. De veilig licht dus bij de sleutel en niet in de geheimhouding van de algoritme. Dit is ook waarom we openbare, uitvoerig geanalyseerde standaarden gebruiken.
