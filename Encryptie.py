@@ -1,6 +1,7 @@
 import random
 import string
 import base64
+import os
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
 def encrypt_with_aes(input: str, enc_key: str, iv: str):
@@ -27,7 +28,8 @@ def generate_iv_string(length=16):
     chars = string.ascii_letters + string.digits + "#$()*+,-.:;<=>?@[]_"
     return ''.join(random.choices(chars, k=length))
 
-enc_key = "1Xt5YfM4ZNuFdwp3OfVkwkhhQLagWKtt"  # 32-character secret key
+key = AESGCM.generate_key(bit_length=256)
+enc_key = os.environ['AES_ENCRYPT_KEY']
 iv = generate_iv_string(12)  # make a random nonce/iv
 input = "This is a top secret message"
 
