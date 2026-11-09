@@ -1,7 +1,6 @@
 import random
 import string
 import base64
-import os
 from cryptography.hazmat.primitives.ciphers.aead import AESGCM
 
 def encrypt_with_aes(input: str, enc_key: str, iv: str):
@@ -29,12 +28,34 @@ def generate_iv_string(length=16):
     return ''.join(random.choices(chars, k=length))
 
 key = AESGCM.generate_key(bit_length=256)
-enc_key = os.environ['AES_ENCRYPT_KEY']
+enc_key = "1Xt5YfM4ZNuFdwp3OfVkwkhhQLagWKtt"  # 32-character secret key
 iv = generate_iv_string(12)  # make a random nonce/iv
-input = "This is a top secret message"
 
-ciphertext = encrypt_with_aes(input, enc_key, iv) # base64 encoded data
-print("Ciphertext:", ciphertext)
+choice = input("For Encrypt type: 1\n"
+               "For Decrypt type: 2\n"
+               "Input: ")
 
-decrypted = decrypt_with_aes(ciphertext, enc_key, iv)
-print("Decrypted:", decrypted)
+if choice == "1":
+    input_text = input("\nEnter text to encrypt: ")
+
+    iv = generate_iv_string()
+
+    ciphertext = encrypt_with_aes(input_text, enc_key, iv)
+
+    print("\n===== ENCRYPTION RESULT =====")
+    print("Ciphertext:", ciphertext)
+    print("IV:", iv)
+
+elif choice == "2":
+    ciphertext = input("\nEnter ciphertext: ")
+    iv = input("Enter IV: ")
+
+    try:
+        decrypted = decrypt_with_aes(ciphertext, enc_key, iv)
+
+        print("\n===== DECRYPTION RESULT =====")
+        print("Decrypted text:", decrypted)
+    except Exception:
+        print("\nError: Invalid ciphertext, key or IV.")
+else:
+        print("\nInvalid choice. Please choose 1 or 2.")
